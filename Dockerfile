@@ -1,4 +1,4 @@
-FROM debian as gym-2048
+FROM tensorflow/tensorflow:latest-gpu as gym-2048
 WORKDIR /app/gym-2048/
 #
 # Setting environment for fully non-interactive system
@@ -9,6 +9,12 @@ ENV DEBCONF_NONINTERACTIVE_SEEN true
 #
 RUN apt-get update -y
 RUN apt-get install python3-pip -y
+#RUN apt-get -y install software-properties-common dirmngr apt-transport-https lsb-release ca-certificates
+#RUN add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/debian10/x86_64/ /"
+#RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/debian10/x86_64/7fa2af80.pub
+#RUN add-apt-repository contrib
+#RUN apt-get update
+#RUN apt-get -y install cuda
 #
 # Copy the package files, etc.
 #
